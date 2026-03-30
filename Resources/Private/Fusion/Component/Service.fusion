@@ -1,0 +1,32 @@
+prototype(UpAssist.Neos.SchemaOrg:Component.Service) < prototype(Neos.Fusion:Component) {
+    @if.hasServiceMixin = ${q(documentNode).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.Service]')}
+    @if.hasServiceType = ${q(documentNode).property('schemaOrgServiceType')}
+    @if.isLive = ${node.context.workspace.name == 'live'}
+
+    serviceType = ${q(documentNode).property('schemaOrgServiceType')}
+    serviceDescription = ${q(documentNode).property('schemaOrgServiceDescription') || q(documentNode).property('metaDescription')}
+    url = ${Neos.Rendering.absoluteNodeUri(documentNode)}
+    areaServed = ${q(documentNode).property('schemaOrgServiceAreaServed') || q(site).property('schemaOrgAreaServed')}
+
+    # Provider info from site-level Organization mixin
+    providerName = ${q(site).property('schemaOrgName') || q(site).property('title')}
+    providerUrl = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : ''}
+
+    renderer = afx`
+        <script type="application/ld+json">
+{Json.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    'serviceType': props.serviceType,
+    'description': props.serviceDescription,
+    'url': props.url,
+    'provider': {
+        '@type': 'Organization',
+        'name': props.providerName,
+        'url': props.providerUrl
+    },
+    'areaServed': props.areaServed ? String.split(props.areaServed, ', ') : null
+})}
+        </script>
+    `
+}

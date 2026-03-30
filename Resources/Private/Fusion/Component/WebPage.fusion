@@ -1,0 +1,21 @@
+prototype(UpAssist.Neos.SchemaOrg:Component.WebPage) < prototype(Neos.Fusion:Component) {
+    @if.isLive = ${node.context.workspace.name == 'live'}
+
+    name = ${q(documentNode).property('titleOverride') || q(documentNode).property('title')}
+    description = ${q(documentNode).property('metaDescription')}
+    url = ${Neos.Rendering.absoluteNodeUri(documentNode)}
+    dateModified = ${Date.format(q(documentNode).property('_lastModificationDateTime'), 'c')}
+
+    renderer = afx`
+        <script type="application/ld+json">
+{Json.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    'name': props.name,
+    'description': props.description,
+    'url': props.url,
+    'dateModified': props.dateModified
+})}
+        </script>
+    `
+}

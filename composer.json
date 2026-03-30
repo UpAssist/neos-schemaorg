@@ -1,0 +1,18 @@
+{
+    "description": "Schema.org structured data (JSON-LD) for Neos CMS — Organization, LocalBusiness, Service, WebPage",
+    "type": "neos-package",
+    "require": {
+        "neos/neos": "*"
+    },
+    "name": "upassist/neos-schemaorg",
+    "autoload": {
+        "psr-4": {
+            "UpAssist\\Neos\\SchemaOrg\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "UpAssist.Neos.SchemaOrg"
+        }
+    }
+}

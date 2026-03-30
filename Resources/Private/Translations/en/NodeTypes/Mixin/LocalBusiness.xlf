@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="UpAssist.Neos.SchemaOrg" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="groups.localBusiness">
+                <source>Local Business</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgStreetAddress">
+                <source>Street address</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgPostalCode">
+                <source>Postal code</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgCity">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgRegion">
+                <source>Region</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgCountry">
+                <source>Country code</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgLatitude">
+                <source>Latitude</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgLongitude">
+                <source>Longitude</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgAreaServed">
+                <source>Area served (comma-separated)</source>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgAreaServed.help.message">
+                <source>Enter locations separated by commas (e.g. Amsterdam, Rotterdam, Utrecht)</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

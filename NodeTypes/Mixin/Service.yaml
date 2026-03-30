@@ -1,0 +1,35 @@
+'UpAssist.Neos.SchemaOrg:Mixin.Service':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        service:
+          label: i18n
+          tab: schemaOrg
+          icon: 'fas fa-concierge-bell'
+          position: 300
+  properties:
+    schemaOrgServiceType:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: service
+          position: 10
+    schemaOrgServiceDescription:
+      type: string
+      ui:
+        label: i18n
+        inspector:
+          group: service
+          position: 20
+          editor: 'Neos.Neos/Inspector/Editors/TextAreaEditor'
+    schemaOrgServiceAreaServed:
+      type: string
+      ui:
+        label: i18n
+        help:
+          message: i18n
+        inspector:
+          group: service
+          position: 30

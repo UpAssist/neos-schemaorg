@@ -1,0 +1,49 @@
+prototype(UpAssist.Neos.SchemaOrg:Component.LocalBusiness) < prototype(Neos.Fusion:Component) {
+    @if.hasLocalBusinessMixin = ${q(site).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.LocalBusiness]')}
+    @if.isHomePage = ${documentNode == site}
+    @if.isLive = ${node.context.workspace.name == 'live'}
+
+    name = ${q(site).property('schemaOrgName') || q(site).property('title')}
+    description = ${q(site).property('schemaOrgDescription')}
+    url = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : ''}
+    phone = ${q(site).property('schemaOrgPhone')}
+    email = ${q(site).property('schemaOrgEmail')}
+    streetAddress = ${q(site).property('schemaOrgStreetAddress')}
+    postalCode = ${q(site).property('schemaOrgPostalCode')}
+    city = ${q(site).property('schemaOrgCity')}
+    region = ${q(site).property('schemaOrgRegion')}
+    country = ${q(site).property('schemaOrgCountry') || 'NL'}
+    latitude = ${q(site).property('schemaOrgLatitude')}
+    longitude = ${q(site).property('schemaOrgLongitude')}
+    areaServed = ${q(site).property('schemaOrgAreaServed')}
+    sameAs = ${q(site).property('schemaOrgSameAs')}
+
+    renderer = afx`
+        <script type="application/ld+json">
+{Json.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    'name': props.name,
+    'description': props.description,
+    'url': props.url,
+    'telephone': props.phone,
+    'email': props.email,
+    'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': props.streetAddress,
+        'addressLocality': props.city,
+        'addressRegion': props.region,
+        'postalCode': props.postalCode,
+        'addressCountry': props.country
+    },
+    'geo': props.latitude && props.longitude ? {
+        '@type': 'GeoCoordinates',
+        'latitude': props.latitude,
+        'longitude': props.longitude
+    } : null,
+    'sameAs': props.sameAs ? String.split(String.trim(props.sameAs), String.chr(10)) : null,
+    'areaServed': props.areaServed ? String.split(props.areaServed, ', ') : null
+})}
+        </script>
+    `
+}

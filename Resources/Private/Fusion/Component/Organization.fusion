@@ -1,0 +1,28 @@
+prototype(UpAssist.Neos.SchemaOrg:Component.Organization) < prototype(Neos.Fusion:Component) {
+    @if.hasOrganizationMixin = ${q(site).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.Organization]')}
+    @if.isLive = ${node.context.workspace.name == 'live'}
+
+    name = ${q(site).property('schemaOrgName') || q(site).property('title')}
+    description = ${q(site).property('schemaOrgDescription')}
+    url = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : ''}
+    logo = ${q(site).property('schemaOrgLogo')}
+    phone = ${q(site).property('schemaOrgPhone')}
+    email = ${q(site).property('schemaOrgEmail')}
+    sameAs = ${q(site).property('schemaOrgSameAs')}
+
+    renderer = afx`
+        <script type="application/ld+json">
+{Json.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    'name': props.name,
+    'description': props.description,
+    'url': props.url,
+    'logo': props.logo ? props.url + '/_Resources/Persistent/' + props.logo.resource.sha1 + '/' + props.logo.resource.filename : null,
+    'telephone': props.phone,
+    'email': props.email,
+    'sameAs': props.sameAs ? String.split(String.trim(props.sameAs), String.chr(10)) : null
+})}
+        </script>
+    `
+}

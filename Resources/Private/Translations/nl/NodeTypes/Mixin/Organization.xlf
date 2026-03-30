@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="UpAssist.Neos.SchemaOrg" source-language="en" datatype="plaintext" target-language="nl">
+        <body>
+            <trans-unit id="tabs.schemaOrg">
+                <source>Schema.org</source>
+                <target>Schema.org</target>
+            </trans-unit>
+            <trans-unit id="groups.organization">
+                <source>Organization</source>
+                <target>Organisatie</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgName">
+                <source>Organization name</source>
+                <target>Organisatienaam</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgDescription">
+                <source>Description</source>
+                <target>Omschrijving</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgLogo">
+                <source>Logo</source>
+                <target>Logo</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgPhone">
+                <source>Phone number</source>
+                <target>Telefoonnummer</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgEmail">
+                <source>Email address</source>
+                <target>E-mailadres</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgSameAs">
+                <source>Social media URLs (one per line)</source>
+                <target>Social media URLs (een per regel)</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgSameAs.help.message">
+                <source>Enter one URL per line (e.g. Instagram, LinkedIn, Facebook)</source>
+                <target>Voer een URL per regel in (bijv. Instagram, LinkedIn, Facebook)</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

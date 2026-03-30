@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="UpAssist.Neos.SchemaOrg" source-language="en" datatype="plaintext" target-language="nl">
+        <body>
+            <trans-unit id="groups.localBusiness">
+                <source>Local Business</source>
+                <target>Lokaal bedrijf</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgStreetAddress">
+                <source>Street address</source>
+                <target>Straatnaam en huisnummer</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgPostalCode">
+                <source>Postal code</source>
+                <target>Postcode</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgCity">
+                <source>City</source>
+                <target>Plaats</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgRegion">
+                <source>Region</source>
+                <target>Provincie</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgCountry">
+                <source>Country code</source>
+                <target>Landcode</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgLatitude">
+                <source>Latitude</source>
+                <target>Breedtegraad</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgLongitude">
+                <source>Longitude</source>
+                <target>Lengtegraad</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgAreaServed">
+                <source>Area served (comma-separated)</source>
+                <target>Verzorgingsgebied (kommagescheiden)</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgAreaServed.help.message">
+                <source>Enter locations separated by commas (e.g. Zevenaar, Arnhem, Doetinchem)</source>
+                <target>Voer locaties in gescheiden door komma's (bijv. Zevenaar, Arnhem, Doetinchem)</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

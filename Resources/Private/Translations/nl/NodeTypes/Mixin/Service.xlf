@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="UpAssist.Neos.SchemaOrg" source-language="en" datatype="plaintext" target-language="nl">
+        <body>
+            <trans-unit id="groups.service">
+                <source>Service</source>
+                <target>Dienst</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgServiceType">
+                <source>Service type</source>
+                <target>Type dienst</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgServiceDescription">
+                <source>Service description</source>
+                <target>Omschrijving dienst</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgServiceAreaServed">
+                <source>Service area (comma-separated, overrides site default)</source>
+                <target>Verzorgingsgebied (kommagescheiden, overschrijft standaard)</target>
+            </trans-unit>
+            <trans-unit id="properties.schemaOrgServiceAreaServed.help.message">
+                <source>Leave empty to use the site-wide area served setting</source>
+                <target>Laat leeg om het sitewijde verzorgingsgebied te gebruiken</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

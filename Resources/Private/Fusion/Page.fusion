@@ -1,0 +1,15 @@
+prototype(Neos.Neos:Page) {
+    head {
+        schemaOrgOrganization = UpAssist.Neos.SchemaOrg:Component.Organization
+        schemaOrgOrganization.@position = 'end'
+
+        schemaOrgLocalBusiness = UpAssist.Neos.SchemaOrg:Component.LocalBusiness
+        schemaOrgLocalBusiness.@position = 'after schemaOrgOrganization'
+
+        schemaOrgWebPage = UpAssist.Neos.SchemaOrg:Component.WebPage
+        schemaOrgWebPage.@position = 'after schemaOrgLocalBusiness'
+
+        schemaOrgService = UpAssist.Neos.SchemaOrg:Component.Service
+        schemaOrgService.@position = 'after schemaOrgWebPage'
+    }
+}
