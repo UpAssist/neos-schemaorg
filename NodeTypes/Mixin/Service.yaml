@@ -2,6 +2,11 @@
   abstract: true
   ui:
     inspector:
+      tabs:
+        schemaOrg:
+          label: i18n
+          icon: 'fas fa-code'
+          position: 'end'
       groups:
         service:
           label: i18n
