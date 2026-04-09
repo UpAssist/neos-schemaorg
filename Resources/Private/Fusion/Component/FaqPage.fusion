@@ -11,7 +11,7 @@ prototype(UpAssist.Neos.SchemaOrg:Component.FaqPage) < prototype(Neos.Fusion:Com
                 name = ${q(faqItem).property('question')}
                 acceptedAnswer = Neos.Fusion:DataStructure {
                     '@type' = 'Answer'
-                    text = ${String.stripTags(q(faqItem).property('answer'))}
+                    text = ${SchemaOrgString.htmlEntityDecode(String.stripTags(q(faqItem).property('answer')))}
                 }
             }
         }

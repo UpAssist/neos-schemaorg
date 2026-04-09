@@ -1,0 +1,4 @@
+Neos:
+  Fusion:
+    defaultContext:
+      SchemaOrgString: UpAssist\Neos\SchemaOrg\Eel\StringHelper
