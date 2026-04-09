@@ -11,5 +11,8 @@ prototype(Neos.Neos:Page) {
 
         schemaOrgService = UpAssist.Neos.SchemaOrg:Component.Service
         schemaOrgService.@position = 'after schemaOrgWebPage'
+
+        schemaOrgFaqPage = UpAssist.Neos.SchemaOrg:Component.FaqPage
+        schemaOrgFaqPage.@position = 'after schemaOrgService'
     }
 }

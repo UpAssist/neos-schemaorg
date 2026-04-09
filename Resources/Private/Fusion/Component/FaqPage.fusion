@@ -1,0 +1,29 @@
+prototype(UpAssist.Neos.SchemaOrg:Component.FaqPage) < prototype(Neos.Fusion:Component) {
+    @if.isLive = ${node.context.workspace.name == 'live'}
+    @if.hasFaqItems = ${q(documentNode).find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').count() > 0}
+
+    @private {
+        mainEntity = Neos.Fusion:Map {
+            items = ${q(documentNode).find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').get()}
+            itemName = 'faqItem'
+            itemRenderer = Neos.Fusion:DataStructure {
+                '@type' = 'Question'
+                name = ${q(faqItem).property('question')}
+                acceptedAnswer = Neos.Fusion:DataStructure {
+                    '@type' = 'Answer'
+                    text = ${String.stripTags(q(faqItem).property('answer'))}
+                }
+            }
+        }
+    }
+
+    renderer = afx`
+        <script type="application/ld+json">
+{Json.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': private.mainEntity
+})}
+        </script>
+    `
+}
