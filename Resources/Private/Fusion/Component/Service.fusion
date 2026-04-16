@@ -5,7 +5,10 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Service) < prototype(Neos.Fusion:Com
 
     serviceType = ${q(documentNode).property('schemaOrgServiceType')}
     serviceDescription = ${q(documentNode).property('schemaOrgServiceDescription') || q(documentNode).property('metaDescription')}
-    url = ${Neos.Rendering.absoluteNodeUri(documentNode)}
+    url = Neos.Neos:NodeUri {
+        node = ${documentNode}
+        absolute = true
+    }
     areaServed = ${q(documentNode).property('schemaOrgServiceAreaServed') || q(site).property('schemaOrgAreaServed')}
 
     # Provider info from site-level Organization mixin
