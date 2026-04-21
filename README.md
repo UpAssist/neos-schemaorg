@@ -13,8 +13,17 @@ Reusable Neos CMS package that adds Schema.org structured data (JSON-LD) to your
 
 ## Installation
 
+Pick the constraint that matches your Neos version:
+
+| Neos version | Composer constraint      | Branch   |
+| ------------ | ------------------------ | -------- |
+| Neos 8.x     | `^1.0` or `dev-neos-8`   | `neos-8` |
+| Neos 9.x     | `^2.0` or `dev-main`     | `main`   |
+
+This branch targets **Neos 8**.
+
 ```bash
-composer require upassist/neos-schemaorg
+composer require upassist/neos-schemaorg:^1.0
 ```
 
 Or add to your `composer.json`:
@@ -22,7 +31,7 @@ Or add to your `composer.json`:
 ```json
 {
     "require": {
-        "upassist/neos-schemaorg": "dev-main"
+        "upassist/neos-schemaorg": "^1.0"
     },
     "repositories": {
         "upassist/neos-schemaorg": {
