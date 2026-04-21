@@ -4,17 +4,27 @@ Reusable Neos CMS package that adds Schema.org structured data (JSON-LD) to your
 
 ## Features
 
-| Schema Type | Scope | Description |
-|---|---|---|
-| **Organization** | All pages | Company name, logo, phone, email, social media |
-| **LocalBusiness** | Homepage | Extends Organization with address, geo coordinates, service area |
-| **WebPage** | All pages | Page name, description, dateModified |
-| **Service** | Per page (opt-in) | Service type, description, area served |
+| Schema Type       | Scope              | Description                                                      |
+| ----------------- | ------------------ | ---------------------------------------------------------------- |
+| **Organization**  | All pages          | Company name, logo, phone, email, social media                   |
+| **LocalBusiness** | Homepage           | Extends Organization with address, geo coordinates, service area |
+| **WebPage**       | All pages          | Page name, description, dateModified                             |
+| **Service**       | Per page (opt-in)  | Service type, description, area served                           |
+| **FAQPage**       | Per page (opt-in)  | Aggregates all `FaqItem`-mixed nodes on a page into one JSON-LD  |
 
 ## Installation
 
+Pick the constraint that matches your Neos version:
+
+| Neos version | Composer constraint      | Branch   |
+| ------------ | ------------------------ | -------- |
+| Neos 8.x     | `^1.0` or `dev-neos-8`   | `neos-8` |
+| Neos 9.x     | `^2.0` or `dev-main`     | `main`   |
+
+This branch targets **Neos 9**.
+
 ```bash
-composer require upassist/neos-schemaorg
+composer require upassist/neos-schemaorg:^2.0
 ```
 
 Or add to your `composer.json`:
@@ -22,7 +32,7 @@ Or add to your `composer.json`:
 ```json
 {
     "require": {
-        "upassist/neos-schemaorg": "dev-main"
+        "upassist/neos-schemaorg": "^2.0"
     },
     "repositories": {
         "upassist/neos-schemaorg": {
@@ -69,6 +79,23 @@ Service schema only renders when the editor fills in a **Service type** — leav
 
 WebPage schema is automatically rendered on all pages — no configuration needed. It uses the page title, meta description, and last modification date.
 
+### FAQPage (for Q&A content)
+
+Add the `FaqItem` mixin to any NodeType that represents a single question/answer pair. The item must expose `question` and `answer` properties.
+
+```yaml
+'Your.Site:Content.Faq.Item':
+  superTypes:
+    'UpAssist.Neos.SchemaOrg:Mixin.FaqItem': true
+  properties:
+    question:
+      type: string
+    answer:
+      type: string
+```
+
+The package aggregates every `FaqItem`-mixed node on a document into a single `FAQPage` JSON-LD block. No wrapper NodeType is required — drop one or more items into a page and the schema is emitted automatically.
+
 ## Inspector UI
 
 After adding the mixins, editors see a **Schema.org** tab in the Neos inspector with the following groups:
@@ -85,8 +112,9 @@ The package augments `Neos.Neos:Page` automatically via `Page.fusion` — no man
 - **LocalBusiness** — renders only on the homepage
 - **WebPage** — renders on all pages (uses Neos.Seo meta description and title)
 - **Service** — renders only when `schemaOrgServiceType` is filled in
+- **FAQPage** — renders when at least one `FaqItem`-mixed node exists on the document
 
-All JSON-LD is only rendered in the `live` workspace (not in the Neos backend).
+All JSON-LD is only rendered in the live rendering mode (not in the Neos backend).
 
 ## Available Mixins
 
@@ -118,16 +146,22 @@ Extends Organization with:
 
 ### `UpAssist.Neos.SchemaOrg:Mixin.Service`
 
-| Property | Type | Description |
-|---|---|---|
-| `schemaOrgServiceType` | string | Type of service |
-| `schemaOrgServiceDescription` | string | Service description (falls back to meta description) |
-| `schemaOrgServiceAreaServed` | string | Service area (falls back to site-level area served) |
+| Property                      | Type   | Description                                            |
+| ----------------------------- | ------ | ------------------------------------------------------ |
+| `schemaOrgServiceType`        | string | Type of service                                        |
+| `schemaOrgServiceDescription` | string | Service description (falls back to meta description)   |
+| `schemaOrgServiceAreaServed`  | string | Service area (falls back to site-level area served)    |
+
+### `UpAssist.Neos.SchemaOrg:Mixin.FaqItem`
+
+Marker mixin — adds no properties itself. The host NodeType must expose `question` and `answer` properties for the aggregator to pick up.
 
 ## Requirements
 
-- Neos CMS 8.x
-- PHP 8.1+
+- Neos CMS 9.x
+- PHP 8.2+
+
+For Neos 8 support, use the [`neos-8` branch](https://github.com/UpAssist/neos-schemaorg/tree/neos-8) or install `^1.0`.
 
 ## License
 
