@@ -82,9 +82,9 @@ WebPage schema is automatically rendered on all pages — no configuration neede
 
 After adding the mixins, editors see a **Schema.org** tab in the Neos inspector with the following groups:
 
-- **Organisatie** — Name, description, logo, phone, email, social media URLs
-- **Lokaal bedrijf** — Street address, postal code, city, region, country, coordinates, area served
-- **Dienst** — Service type, description, service area override
+- **Organization** — Name, description, logo, phone, email, social media URLs
+- **Local Business** — Street address, postal code, city, region, country, coordinates, area served
+- **Service** — Service type, description, service area override
 
 ## How it works
 
