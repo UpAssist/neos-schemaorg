@@ -1,5 +1,5 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.WebPage) < prototype(Neos.Fusion:Component) {
-    @if.isLive = ${node.context.workspace.name == 'live'}
+    @if.isLive = ${!renderingMode.isEdit}
 
     name = ${q(documentNode).property('titleOverride') || q(documentNode).property('title')}
     description = ${q(documentNode).property('metaDescription')}

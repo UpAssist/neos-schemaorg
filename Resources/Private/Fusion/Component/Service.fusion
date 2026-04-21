@@ -1,7 +1,7 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.Service) < prototype(Neos.Fusion:Component) {
     @if.hasServiceMixin = ${q(documentNode).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.Service]')}
     @if.hasServiceType = ${q(documentNode).property('schemaOrgServiceType')}
-    @if.isLive = ${node.context.workspace.name == 'live'}
+    @if.isLive = ${!renderingMode.isEdit}
 
     serviceType = ${q(documentNode).property('schemaOrgServiceType')}
     serviceDescription = ${q(documentNode).property('schemaOrgServiceDescription') || q(documentNode).property('metaDescription')}

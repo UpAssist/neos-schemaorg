@@ -1,6 +1,6 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.Organization) < prototype(Neos.Fusion:Component) {
     @if.hasOrganizationMixin = ${q(site).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.Organization]')}
-    @if.isLive = ${node.context.workspace.name == 'live'}
+    @if.isLive = ${!renderingMode.isEdit}
 
     name = ${q(site).property('schemaOrgName') || q(site).property('title')}
     description = ${q(site).property('schemaOrgDescription')}

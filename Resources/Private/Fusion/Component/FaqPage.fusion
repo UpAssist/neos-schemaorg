@@ -1,5 +1,5 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.FaqPage) < prototype(Neos.Fusion:Component) {
-    @if.isLive = ${node.context.workspace.name == 'live'}
+    @if.isLive = ${!renderingMode.isEdit}
     @if.hasFaqItems = ${q(documentNode).find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').count() > 0}
 
     @private {
