@@ -6,3 +6,10 @@ Neos:
   Fusion:
     defaultContext:
       SchemaOrgString: UpAssist\Neos\SchemaOrg\Eel\StringHelper
+
+UpAssist:
+  Neos:
+    SchemaOrg:
+      # Fallback absolute site URL used when no Neos Domain entity is active
+      # (e.g. local dev). Include the scheme, no trailing slash. Example: https://example.com
+      siteUrl: ''
