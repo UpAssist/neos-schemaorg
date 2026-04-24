@@ -7,7 +7,7 @@ prototype(UpAssist.Neos.SchemaOrg:Component.WebPage) < prototype(Neos.Fusion:Com
         node = ${documentNode}
         absolute = true
     }
-    dateModified = ${Date.format(q(documentNode).property('_lastModificationDateTime'), 'c')}
+    dateModified = ${documentNode.timestamps.lastModified ? Date.format(documentNode.timestamps.lastModified, 'c') : null}
 
     renderer = afx`
         <script type="application/ld+json">
