@@ -1,6 +1,7 @@
 {
     "description": "Schema.org structured data (JSON-LD) for Neos CMS — Organization, LocalBusiness, Service, WebPage",
     "type": "neos-package",
+    "license": "MIT",
     "require": {
         "neos/neos": "^8.0"
     },
