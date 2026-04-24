@@ -3,6 +3,11 @@ Neos:
     fusion:
       autoInclude:
         UpAssist.Neos.SchemaOrg: true
+    userInterface:
+      translation:
+        autoInclude:
+          UpAssist.Neos.SchemaOrg:
+            - '*'
   Fusion:
     defaultContext:
       SchemaOrgString: UpAssist\Neos\SchemaOrg\Eel\StringHelper
