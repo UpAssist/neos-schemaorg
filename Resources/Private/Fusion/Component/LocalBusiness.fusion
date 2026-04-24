@@ -5,7 +5,7 @@ prototype(UpAssist.Neos.SchemaOrg:Component.LocalBusiness) < prototype(Neos.Fusi
 
     name = ${q(site).property('schemaOrgName') || q(site).property('title')}
     description = ${q(site).property('schemaOrgDescription')}
-    url = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : ''}
+    url = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : Configuration.setting('UpAssist.Neos.SchemaOrg.siteUrl')}
     phone = ${q(site).property('schemaOrgPhone')}
     email = ${q(site).property('schemaOrgEmail')}
     streetAddress = ${q(site).property('schemaOrgStreetAddress')}
