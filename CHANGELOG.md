@@ -2,7 +2,7 @@
 
 All notable changes to this project are documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and this project follows [Semantic Versioning](https://semver.org/).
 
-Neos 8 releases (1.x) live on the `neos-8` branch, Neos 9 releases (2.x) on `main`.
+Neos 8 releases (1.x) live on the `1.x` branch, Neos 9 releases (2.x) on `main`.
 
 ## 1.1.1 - 2026-11-19
 
