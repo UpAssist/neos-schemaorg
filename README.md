@@ -16,10 +16,10 @@ Reusable Neos CMS package that adds Schema.org structured data (JSON-LD) to your
 
 Pick the constraint that matches your Neos version:
 
-| Neos version | Composer constraint      | Branch   |
-| ------------ | ------------------------ | -------- |
-| Neos 8.x     | `^1.0` or `dev-neos-8`   | `neos-8` |
-| Neos 9.x     | `^2.0` or `dev-main`     | `main`   |
+| Neos version | Tested on (2026-11-19) | Composer constraint | Branch | Latest release |
+| ------------ | ---------------------- | ------------------- | ------ | -------------- |
+| 8.3, 8.4     | 8.3, 8.4               | `^1.1`              | `1.x`  | 1.1.1          |
+| 9.0 – 9.2    | 9.0, 9.1, 9.2          | `^2.0`              | `main` | 2.0.5          |
 
 This branch targets **Neos 9**.
 
@@ -161,7 +161,7 @@ Marker mixin — adds no properties itself. The host NodeType must expose `quest
 - Neos CMS 9.x
 - PHP 8.2+
 
-For Neos 8 support, use the [`neos-8` branch](https://github.com/UpAssist/neos-schemaorg/tree/neos-8) or install `^1.0`.
+For Neos 8 support, use the [`1.x` branch](https://github.com/UpAssist/neos-schemaorg/tree/1.x) or install `^1.1`.
 
 ## License
 
