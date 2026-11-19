@@ -6,14 +6,17 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Organization) < prototype(Neos.Fusio
     description = ${q(site).property('schemaOrgDescription')}
     url = UpAssist.Neos.SchemaOrg:Helper.SiteUrl
     logo = ${q(site).property('schemaOrgLogo')}
-    logoUrl = Neos.Fusion:ResourceUri {
-        resource = ${props.logo.resource}
-        absolute = true
-        @if.hasLogo = ${props.logo && props.logo.resource}
-    }
     phone = ${q(site).property('schemaOrgPhone')}
     email = ${q(site).property('schemaOrgEmail')}
     sameAs = ${q(site).property('schemaOrgSameAs')}
+
+    @private {
+        logoUrl = Neos.Fusion:ResourceUri {
+            resource = ${props.logo.resource}
+            absolute = true
+            @if.hasLogo = ${props.logo && props.logo.resource}
+        }
+    }
 
     renderer = afx`
         <script type="application/ld+json">
@@ -23,7 +26,7 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Organization) < prototype(Neos.Fusio
     'name': props.name,
     'description': props.description,
     'url': props.url,
-    'logo': props.logoUrl,
+    'logo': private.logoUrl,
     'telephone': props.phone,
     'email': props.email,
     'sameAs': props.sameAs ? String.split(String.trim(props.sameAs), String.chr(10)) : null

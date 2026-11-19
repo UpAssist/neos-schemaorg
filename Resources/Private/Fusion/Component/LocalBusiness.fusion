@@ -1,6 +1,6 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.LocalBusiness) < prototype(Neos.Fusion:Component) {
     @if.hasLocalBusinessMixin = ${q(site).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.LocalBusiness]')}
-    @if.isHomePage = ${documentNode == site}
+    @if.isHomePage = ${documentNode.aggregateId.value == site.aggregateId.value}
     @if.isLive = ${!renderingMode.isEdit}
 
     name = ${q(site).property('schemaOrgName') || q(site).property('title')}
