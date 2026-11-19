@@ -165,4 +165,4 @@ For Neos 8 support, use the [`neos-8` branch](https://github.com/UpAssist/neos-s
 
 ## License
 
-Proprietary — UpAssist
+MIT, see [LICENSE](LICENSE).
