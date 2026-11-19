@@ -17,7 +17,7 @@ Pick the constraint that matches your Neos version:
 
 | Neos version | Composer constraint      | Branch   |
 | ------------ | ------------------------ | -------- |
-| Neos 8.x     | `^1.0` or `dev-neos-8`   | `neos-8` |
+| Neos 8.3+    | `^1.1` or `dev-neos-8`   | `neos-8` |
 | Neos 9.x     | `^2.0` or `dev-main`     | `main`   |
 
 This branch targets **Neos 8**.
@@ -135,9 +135,9 @@ Extends Organization with:
 
 ## Requirements
 
-- Neos CMS 8.x
+- Neos CMS 8.3 or 8.4
 - PHP 8.1+
 
 ## License
 
-Proprietary — UpAssist
+MIT, see [LICENSE](LICENSE).

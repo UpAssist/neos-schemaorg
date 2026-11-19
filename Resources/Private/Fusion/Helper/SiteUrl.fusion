@@ -1,0 +1,6 @@
+# Absolute site URL without trailing slash: the first active Neos Domain of the
+# current site, or the configured UpAssist.Neos.SchemaOrg.siteUrl fallback.
+prototype(UpAssist.Neos.SchemaOrg:Helper.SiteUrl) < prototype(Neos.Fusion:Value) {
+    hostname = ${site.context.currentSite.firstActiveDomain.hostname}
+    value = ${this.hostname ? 'https://' + this.hostname : Configuration.setting('UpAssist.Neos.SchemaOrg.siteUrl')}
+}
