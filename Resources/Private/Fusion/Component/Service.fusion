@@ -13,7 +13,7 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Service) < prototype(Neos.Fusion:Com
 
     # Provider info from site-level Organization mixin
     providerName = ${q(site).property('schemaOrgName') || q(site).property('title')}
-    providerUrl = ${site.context.currentSite.firstActiveDomain.hostname ? 'https://' + site.context.currentSite.firstActiveDomain.hostname : ''}
+    providerUrl = UpAssist.Neos.SchemaOrg:Helper.SiteUrl
 
     renderer = afx`
         <script type="application/ld+json">
