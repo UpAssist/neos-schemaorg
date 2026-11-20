@@ -2,6 +2,19 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Organization) < prototype(Neos.Fusio
     @if.hasOrganizationMixin = ${q(site).is('[instanceof UpAssist.Neos.SchemaOrg:Mixin.Organization]')}
     @if.isLive = ${node.context.workspace.name == 'live'}
 
+    # Own cache entry per site: the page entry is not tagged with the site node,
+    # so a change to a site property would otherwise only show on pages whose
+    # own content changed.
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            site = ${site}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(site)}
+        }
+    }
+
     name = ${q(site).property('schemaOrgName') || q(site).property('title')}
     description = ${q(site).property('schemaOrgDescription')}
     url = UpAssist.Neos.SchemaOrg:Helper.SiteUrl
