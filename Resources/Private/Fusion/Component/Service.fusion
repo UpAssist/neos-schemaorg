@@ -3,6 +3,19 @@ prototype(UpAssist.Neos.SchemaOrg:Component.Service) < prototype(Neos.Fusion:Com
     @if.hasServiceType = ${q(documentNode).property('schemaOrgServiceType')}
     @if.isLive = ${!renderingMode.isEdit}
 
+    # Own cache entry per document, tagged with the document and the site node
+    # (provider and areaServed come from the site), see Organization.
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${Neos.Caching.entryIdentifierForNode(documentNode)}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(documentNode)}
+            2 = ${Neos.Caching.nodeTag(site)}
+        }
+    }
+
     serviceType = ${q(documentNode).property('schemaOrgServiceType')}
     serviceDescription = ${q(documentNode).property('schemaOrgServiceDescription') || q(documentNode).property('metaDescription')}
     url = Neos.Neos:NodeUri {
