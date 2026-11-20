@@ -3,6 +3,19 @@ prototype(UpAssist.Neos.SchemaOrg:Component.LocalBusiness) < prototype(Neos.Fusi
     @if.isHomePage = ${documentNode.aggregateId.value == site.aggregateId.value}
     @if.isLive = ${!renderingMode.isEdit}
 
+    # Own cache entry per site (and home page or not, because the cache is read
+    # before @if is evaluated), tagged with the site node, see Organization.
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            site = ${Neos.Caching.entryIdentifierForNode(site)}
+            isHomePage = ${documentNode.aggregateId.value == site.aggregateId.value ? 'home' : 'subpage'}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(site)}
+        }
+    }
+
     name = ${q(site).property('schemaOrgName') || q(site).property('title')}
     description = ${q(site).property('schemaOrgDescription')}
     url = UpAssist.Neos.SchemaOrg:Helper.SiteUrl
