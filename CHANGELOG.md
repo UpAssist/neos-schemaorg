@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file. The format is b
 
 Neos 9 releases (2.x) live on `main`, Neos 8 releases (1.x) on the `1.x` branch.
 
+## 2.0.7 - 2026-11-23
+
+### Fixed
+
+- FAQ items without a question (or without an answer) were emitted as a `Question` with `name: null` or an empty `acceptedAnswer`, which is invalid schema.org and makes Google reject the whole FAQPage. Such items are now skipped, and a page whose FAQ items are all incomplete gets no FAQPage block.
+
 ## 2.0.6 - 2026-11-20
 
 ### Fixed
