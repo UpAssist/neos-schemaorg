@@ -1,0 +1,8 @@
+# FAQ items in the content collections of the current document (not in its
+# child documents) that have both a question and an answer. Items with an
+# empty question or answer would be emitted as an invalid Question
+# (name: null or an empty acceptedAnswer), so they are left out.
+prototype(UpAssist.Neos.SchemaOrg:Helper.FaqItems) < prototype(Neos.Fusion:Value) {
+    items = ${q(documentNode).children('[instanceof Neos.Neos:ContentCollection]').find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').get()}
+    value = ${Array.values(Array.filter(this.items, item => String.trim(String.stripTags(q(item).property('question'))) != '' && String.trim(String.stripTags(q(item).property('answer'))) != ''))}
+}

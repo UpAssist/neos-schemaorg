@@ -4,6 +4,13 @@ All notable changes to this project are documented in this file. The format is b
 
 Neos 8 releases (1.x) live on the `1.x` branch, Neos 9 releases (2.x) on `main`.
 
+## 1.1.3 - 2026-11-23
+
+### Fixed
+
+- FAQ items without a question (or without an answer) were emitted as a `Question` with `name: null` or an empty `acceptedAnswer`, which is invalid schema.org and makes Google reject the whole FAQPage. Such items are now skipped, and a page whose FAQ items are all incomplete gets no FAQPage block.
+- The FAQPage of a page also listed the FAQ items of all its child pages (on the home page: every FAQ item of the site). Only FAQ items in the page's own content collections are used now, as Google only accepts FAQ markup for questions shown on the page itself.
+
 ## 1.1.2 - 2026-11-20
 
 ### Fixed
