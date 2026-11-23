@@ -1,10 +1,12 @@
 prototype(UpAssist.Neos.SchemaOrg:Component.FaqPage) < prototype(Neos.Fusion:Component) {
     @if.isLive = ${node.context.workspace.name == 'live'}
-    @if.hasFaqItems = ${q(documentNode).find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').count() > 0}
+    @if.hasFaqItems = UpAssist.Neos.SchemaOrg:Helper.FaqItems {
+        @process.hasItems = ${Array.length(value) > 0}
+    }
 
     @private {
         mainEntity = Neos.Fusion:Map {
-            items = ${q(documentNode).find('[instanceof UpAssist.Neos.SchemaOrg:Mixin.FaqItem]').get()}
+            items = UpAssist.Neos.SchemaOrg:Helper.FaqItems
             itemName = 'faqItem'
             itemRenderer = Neos.Fusion:DataStructure {
                 '@type' = 'Question'
